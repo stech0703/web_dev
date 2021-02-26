@@ -1,0 +1,10 @@
+{% extends "base.html" %} {% import 'macros.html' as macros %} {% block content %}
+<div class="container">
+    <div>
+        <h1>Hello, {{context['name']}}!</h1>
+    </div>
+</div>
+<ul>
+    {{macros.render_list(context['list'])}}
+</ul>
+{% endblock %}

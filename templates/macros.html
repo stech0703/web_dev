@@ -1,0 +1,6 @@
+{% macro render_list(l) %} {% for l in list%}
+<li>
+
+    <a href="{{url_for('user',name='shubham')}}">{{ l }}</a>
+</li>
+{% endfor %} {% endmacro %}
