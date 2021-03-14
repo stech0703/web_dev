@@ -1,5 +1,4 @@
-{% extends "base.html" %} {% block title %}Contact Form{% endblock %} {% block content %}
-<html>
+{% extends "base.html" %} {% block title %}Contact Us{% endblock %} {% block content %}
 
 <head>
     <style>
@@ -11,34 +10,43 @@
     </style>
 </head>
 
-<body>
-
-    <div class="container">
-        {% for mess in get_flashed_messages() %}
-        <div class="alert alert-warning" id="altmsg">
-            <button type="button" class="close" onclick=" close_flash_message();">
-           <style="color:green;">cut</style>
-          </button>
-            <b>{{mess}}</b>
-        </div>
-        {% endfor %}
-        <center><br><br><br>
-            <h1 style="color:green;"><u>Contact Us Here</h1></u>
+<body style="background:url(https://s3-eu-west-1.amazonaws.com/video.gallereplay.com/artistarea/Fingers+Typing+on+Keyboard_f8bb2a90-c8aa-4b80-ab92-b65d7d7085f3/Cinemagraph_watermark/576x324/cinemagraph.gif);background-size: 100%;">
+    <center>
 
 
-                <form action="{{ url_for('contact') }}" method="POST">
+        <br>
+        <div class="container">
+            <form id="contact" action="/" method="POST">
+                <center><br>
+                    <div class="container"><br> {% for mess in get_flashed_messages() %}
+                        <div class="alert alert-warning" id="altmsg">
+                            <button type="button" class="close" onclick="close_flash_message();">
+                   X</button>
+                            <b>{{mess}}</b>
+                        </div>
+                        {% endfor %}</center>
+                <center><br><br><br>
 
-                    {{ form.hidden_tag() }} {{ form.Name.label(class="m0")}} {{ form.Name(class="card0") }}
-                    <br><br> {{ form.email.label(class="m1")}} {{ form.email(class="card1") }}<br><br> {{ form.subject.label(class="m2")}} {{ form.subject(class="card2") }}<br><br> {{ form.query.label(class="m3")}} {{ form.query(class="card3") }}<br><br>                    {{ form.submit(class="card4") }}<br>
-        </center>
-        </form>
 
+                    <h1 style="color:rgb(243, 123, 11);"><u>Welcome to NITT webdev classes...</h1></u>
+                        <h2 style="color:rgb(243, 123, 11);"><u>Contact Form</h2></u>
 
-
-    </div>
-
-</body>
-
-</html>
-
-{% endblock %}
+                            <label>Name</label>
+                            <input placeholder="Enter your Name" type="text" name="name" required autofocus></br>
+                            <br>
+                            <label>Email</label>
+                            <input placeholder="enter your Email " type="email" name="email" required></br>
+                            <br>
+                            <label>Subject</label>
+                            <input placeholder="Subject" type="text" name="subj" required autofocus>
+                            </br><br>
+                            <label>Query</label>
+                            <textarea placeholder="enter your Query...." name="message" required></textarea>
+                            </br>
+                            <br>
+                            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+                            </br>
+                </center>
+            </form>
+            </div>
+            {% endblock %}
