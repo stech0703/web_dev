@@ -5,6 +5,6 @@
     </div>
 </div>
 <ul>
-    {{macros.render_list(context['list'])}}
+    {%for l in context['list']%} {{macros.render_list(context['list'])}} {%endfor%}
 </ul>
 {% endblock %}

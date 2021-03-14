@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% block title %}Contact Form{% endblock %} {% block content %}
+<html>
+
+<head>
+    <style>
+        body {
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        {% for mess in get_flashed_messages() %}
+        <div class="alert alert-warning" id="altmsg">
+            <button type="button" class="close" onclick=" close_flash_message();">
+           <style="color:green;">cut</style>
+          </button>
+            <b>{{mess}}</b>
+        </div>
+        {% endfor %}
+        <center><br><br><br>
+            <h1 style="color:green;"><u>Contact Us Here</h1></u>
+
+
+                <form action="{{ url_for('contact') }}" method="POST">
+
+                    {{ form.hidden_tag() }} {{ form.Name.label(class="m0")}} {{ form.Name(class="card0") }}
+                    <br><br> {{ form.email.label(class="m1")}} {{ form.email(class="card1") }}<br><br> {{ form.subject.label(class="m2")}} {{ form.subject(class="card2") }}<br><br> {{ form.query.label(class="m3")}} {{ form.query(class="card3") }}<br><br>                    {{ form.submit(class="card4") }}<br>
+        </center>
+        </form>
+
+
+
+    </div>
+
+</body>
+
+</html>
+
+{% endblock %}
